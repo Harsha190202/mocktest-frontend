@@ -13,6 +13,10 @@
     "react-scripts": "5.0.1",
     "web-vitals": "^2.1.4"
   },
+  "devDependencies": {
+    "eslint-webpack-plugin": "^3.0.0",
+    "jest-worker": "^27.0.0"
+  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
