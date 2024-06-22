@@ -22,7 +22,7 @@ function Timer(props) {
     }, 1000);
 
     return () => clearInterval(interval);
-  }, [issubmit]);
+  }, [issubmit, handleSubmit]);
   let responses = props.response;
   const userdata = JSON.parse(localStorage.getItem("userdata"));
   const handleSubmit = async () => {

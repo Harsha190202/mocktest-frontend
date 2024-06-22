@@ -19,7 +19,7 @@ function Home(props) {
   let setTestData = props.setTestData;
   useEffect(() => {
     fetchTestdata();
-  }, []);
+  }, [fetchTestdata]);
 
   async function fetchTestdata() {
     try {
