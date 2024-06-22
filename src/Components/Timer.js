@@ -6,6 +6,24 @@ function Timer(props) {
   let time = props.duration;
   let setTime = props.setDuration;
   let issubmit = props.issubmit;
+  const handleSubmit = async () => {
+    try {
+      console.log(`submit happened =  ${id}`);
+      console.log(responses);
+      const res = await fetch(`http://localhost:8000/api/v1/attempt/${id}`, {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${userdata?.data?.accessToken}`,
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ responses: responses }),
+      });
+      let data = await res.json();
+      if (data?.statusCode === 200) navigate("/");
+    } catch (error) {
+      alert(error);
+    }
+  };
   useEffect(() => {
     const interval = setInterval(() => {
       setTime((prevTime) => {
@@ -25,24 +43,6 @@ function Timer(props) {
   }, [issubmit, handleSubmit]);
   let responses = props.response;
   const userdata = JSON.parse(localStorage.getItem("userdata"));
-  const handleSubmit = async () => {
-    try {
-      console.log(`submit happened =  ${id}`);
-      console.log(responses);
-      const res = await fetch(`http://localhost:8000/api/v1/attempt/${id}`, {
-        method: "POST",
-        headers: {
-          Authorization: `Bearer ${userdata?.data?.accessToken}`,
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ responses: responses }),
-      });
-      let data = await res.json();
-      if (data?.statusCode === 200) navigate("/");
-    } catch (error) {
-      alert(error);
-    }
-  };
 
   const getFormatTime = (time) => {
     let total_hrs = parseInt(time / (60 * 60));

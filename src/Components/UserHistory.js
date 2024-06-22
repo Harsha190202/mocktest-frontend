@@ -4,7 +4,7 @@ function UserHistory() {
   // let [userHistory, setUserHistory] = useState({});
   useEffect(() => {
     fetchUserHistoryData();
-  }, [fetchUserHistoryData]);
+  });
   const userdata = JSON.parse(localStorage.getItem("userdata"));
   async function fetchUserHistoryData() {
     try {
