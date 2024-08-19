@@ -23,7 +23,7 @@ function Home(props) {
 
   async function fetchTestdata() {
     try {
-      const res = await fetch(`http://localhost:8000/api/v1/test/${id}`, {
+      const res = await fetch(`${process.env.BACKEND_SERVER_URL}/api/v1/test/${id}`, {
         headers: {
           Authorization: `Bearer ${userdata?.data?.accessToken}`,
         },
