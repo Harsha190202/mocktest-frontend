@@ -8,7 +8,7 @@ function UserHistory() {
   const userdata = JSON.parse(localStorage.getItem("userdata"));
   async function fetchUserHistoryData() {
     try {
-      const res = await fetch("http://localhost:8000/api/v1/user/history", {
+      const res = await fetch(`${REACT_APP_BACKEND_SERVER_URL}/api/v1/user/history`, {
         headers: {
           Authorization: `Bearer ${userdata?.data?.accessToken}`,
         },

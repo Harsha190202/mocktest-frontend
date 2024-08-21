@@ -19,7 +19,7 @@ function Login() {
 
   const handleLogin = async (e) => {
     e.preventDefault();
-    const res = await fetch("http://localhost:8000/api/v1/user/login", {
+    const res = await fetch(`${REACT_APP_BACKEND_SERVER_URL}/api/v1/user/login`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -39,7 +39,7 @@ function Login() {
 
   const handleRegister = async (e) => {
     e.preventDefault();
-    const res = await fetch("http://localhost:8000/api/v1/user/register", {
+    const res = await fetch(`${REACT_APP_BACKEND_SERVER_URL}/api/v1/user/register`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
