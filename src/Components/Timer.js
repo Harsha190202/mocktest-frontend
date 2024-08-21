@@ -10,7 +10,7 @@ function Timer(props) {
     try {
       console.log(`submit happened =  ${id}`);
       console.log(responses);
-      const res = await fetch(`${REACT_APP_BACKEND_SERVER_URL}/api/v1/attempt/${id}`, {
+      const res = await fetch(`${process.env.REACT_APP_BACKEND_SERVER_URL}/api/v1/attempt/${id}`, {
         method: "POST",
         headers: {
           Authorization: `Bearer ${userdata?.data?.accessToken}`,
