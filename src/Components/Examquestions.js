@@ -19,7 +19,7 @@ function Home(props) {
   let setTestData = props.setTestData;
   useEffect(() => {
     fetchTestdata();
-  });
+  }, []);
 
   async function fetchTestdata() {
     try {
@@ -37,6 +37,7 @@ function Home(props) {
       setTest(testdata?.data?.testName);
       setDuration(testdata?.data?.testDuration * 60);
 
+      console.log(testdata);
       setData(questions);
       const initanswers = new Array(questions?.length).fill(null);
       initanswers[0] = 0;
