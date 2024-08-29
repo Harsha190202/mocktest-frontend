@@ -15,38 +15,33 @@ const Layout = () => (
 );
 
 function App() {
-  const router = createBrowserRouter(
-    [
-      {
-        element: <Layout />,
-        children: [
-          {
-            path: "/login",
-            element: <Login />,
-          },
-          {
-            path: "/",
-            element: <Home />,
-          },
-          {
-            path: "/tests",
-            element: <Tests />,
-          },
-          {
-            path: "tests/exam/:id",
-            element: <ExamHome />,
-          },
-          {
-            path: "/userinfo",
-            element: <User />,
-          },
-        ],
-      },
-    ],
+  const router = createBrowserRouter([
     {
-      basename: "/mocktest-app",
-    }
-  );
+      element: <Layout />,
+      children: [
+        {
+          path: "/login",
+          element: <Login />,
+        },
+        {
+          path: "/",
+          element: <Home />,
+        },
+        {
+          path: "/tests",
+          element: <Tests />,
+        },
+        {
+          path: "tests/exam/:id",
+          element: <ExamHome />,
+        },
+        {
+          path: "/userinfo",
+          element: <User />,
+        },
+      ],
+    },
+  ]);
 
   return (
     <RouterProvider router={router}>
