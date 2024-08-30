@@ -19,6 +19,7 @@ function Login() {
 
   const handleLogin = async (e) => {
     e.preventDefault();
+    console.log("Backend URL:", process.env.REACT_APP_BACKEND_SERVER_URL);
     const res = await fetch(`${process.env.REACT_APP_BACKEND_SERVER_URL}/api/v1/user/login`, {
       method: "POST",
       headers: {
